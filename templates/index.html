@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="homeContainer">
+
+    <!-- LEFT SIDE -->
+    <div class="leftSide">
+        <h2>Welcome to the Football Bookstore!</h2>
+        <p>Your one-stop shop for everything about football.</p>
+        <p>Explore autobiographies, history, tournaments, and books about legendary players.</p>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="rightSide">
+        <h2>Shop by Category:</h2>
+
+        {% for category in categories %}
+            <div class="categoryBox">
+                <a href="/category?category={{ category.id }}">
+                    <img src="/static/images/categories/{{ category.name|lower }}.jpg" alt="{{ category.name }}">
+                </a>
+                <p><a href="/category?category={{ category.id }}">{{ category.name }}</a></p>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}
+
